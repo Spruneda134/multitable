@@ -1,0 +1,133 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>Multiplication Tables</title>
+
+    <meta name="viewport"
+
+          content="width=device-width, initial-scale=1">
+
+<style>
+body {
+background: linear-gradient(to right, darkgray 0%, lightgray 100%);
+color: black;
+}
+
+.borderclass {
+border: solid white 5px;
+}
+
+img {
+width: 250px;
+height: auto;
+border-radius: 5rem;
+}
+ 
+a:link, a:visited {
+font-weight: bold;
+text-decoration: none;
+color: black;
+}
+
+.tabledisplay{
+width: 100%;
+border: solid black 1px;
+border-collapse: collapse;
+padding: 3px;
+}
+
+.trdisplay {
+border: solid black 1px;
+border-collapse: collapse;
+}
+
+.tddisplay {
+padding: 0px 0px 0px 20px;
+}
+
+</style>
+  </head>
+
+<body>
+
+<table class="borderclass"><tr><td>
+
+<h1>Multiplication Tables</h1>
+<h3>Enter two values to create a Multiplication Table.</h3>
+
+
+<form name="theform">
+<table>
+	<tr>
+<td rowspan="3"><img src="faces.jpg" alt="picture of two faces"></td>
+<td><strong><span style="float:right">Enter value to multiply:</strong></td>
+<td><input name="valueToMultiplyFmInput" size="10"></td>
+	</tr>
+
+	<tr>
+<td><strong><span style="float:right">How many times:</strong></td>
+<td><input name="timesFmInput" size="10"></td>
+	</tr>
+
+	<tr>
+<td colspan="2">
+<input type="button" name="calc" value="Calculate" onclick="calculate();">
+<input type="button" name="clear" value="Clear" onclick="clearinfo();">
+</td>
+	</tr>
+</table>
+
+<h2 style="background-color: white; color: black" id="reportFmOutput"></h2>
+
+
+
+</form>
+
+<script>
+document.theform.valueToMultiplyFmInput.focus();
+
+function calculate() {
+
+var value; 
+var times;
+var answer;
+var report;
+
+value = parseInt(document.theform.valueToMultiplyFmInput.value);
+times = parseInt(document.theform.timesFmInput.value);
+
+report = "<table class='tabledisplay'>";
+
+for (i = 1; i <= times; i++) {
+answer = value * i;
+report += "<tr class='trdisplay'><td class='tddisplay'>" + value + " X "  + i + " = " + answer + "</td></tr>"
+}
+
+report += "</table>";
+
+document.getElementById("reportFmOutput").innerHTML = report;
+
+}
+
+function clearinfo() {
+document.theform.valueToMultiplyFmInput.value = " ";
+document.theform.timesFmInput.value = " ";
+document.getElementById("reportFmOutput").innerHTML = " ";
+
+document.theform.valueToMultiplyFmInput.focus();
+}
+
+
+</script>
+
+</td></tr></table>
+
+<p></p> <a href="http://csnet.southtexascollege.edu/localuser/spruned5/index.html">Go Back to HomePage</a>
+	<p><strong>Salvador Pruneda</strong></p> 
+</body>
+</html>
